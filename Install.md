@@ -181,7 +181,7 @@ collect2: fatal error: ld terminated with signal 4 [Illegal instruction]
 compilation terminated.
 ```
 
-your build toolchain could be corrupted. Try to reinstall with 
+your build toolchain may be corrupted. Try to reinstall with 
 
 ```bash
 sudo apt-get clean

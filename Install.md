@@ -173,6 +173,21 @@ If Moonraker fail to start and `sudo journalctl -xe -u moonraker.service` show s
 
 To make sure dependencies are updated.
 
+### Build firmware fails with `collect2: fatal error:` message
+If the [firmware build](#build-firmware) fails with errors like
+
+```
+collect2: fatal error: ld terminated with signal 4 [Illegal instruction]
+compilation terminated.
+```
+
+your build toolchain could be corrupted. Try to reinstall with 
+
+```bash
+sudo apt-get clean
+sudo apt-get update
+sudo apt-get install --reinstall binutils-arm-none-eabi gcc-arm-none-eabi libstdc++-arm-none-eabi-newlib
+```
 
 ## Bonus: hardware boot button / led indicator for RPi
 [Guide](https://gist.github.com/lbussy/9e81cbcc617952f1250e353bd42e7775)

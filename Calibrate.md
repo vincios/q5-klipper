@@ -7,6 +7,34 @@ Legend:
 
 `🔹parameter_name`/`🔹[section]` indicate a parameter or a section of the `printer.cfg` file.
 
+### Some notes about calibration order
+About **delta calibration**, klipper documentation says that:
+
+1. `the delta calibration is dependent on the precision of the tower endstop switches` ([source](https://www.klipper3d.org/Delta_Calibrate.html#delta-calibration))
+2. `If using an automatic probe then first calibrate the probe and then check for a probe location bias` ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
+3. `If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. [...] be sure to rerun probe calibration after any delta calibration.` ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
+
+About the temperature, the documentation is ambigous, because in the [Bed Leveling](https://www.klipper3d.org/Bed_Level.html#the-paper-test) page says 
+
+> `Always perform the paper test when both nozzle and bed are at room temperature!`
+ 
+And in the [Probe Calibration](https://www.klipper3d.org/Probe_Calibrate.html#temperature-bias) page says
+
+> It is recommended to run the bed leveling tools at a consistent temperature to account for this bias. For example, either always run the tools when the printer is at room temperature, or always run the tools after the printer has obtained a consistent print temperature. In either case, it is a good idea to wait several minutes after the desired temperature is reached, so that the printer apparatus is consistently at the desired temperature.
+
+But since the q5 bed badly warps when hot, **it's better to calibrate near the print temperature (180° nozzle / 60° bed)**.
+
+So, the correct order to calibrate should be:
+
+1. [Extruder Spring](#extruder-spring) / [Extruder Rotation Distance](#extruder)
+2. [PID](#pid)
+3. [Endstop Phase](#endstop-phase)
+4. **Heat bed and nozzle to working temps and let stabilize (~ five minutes)**
+5. [Probe calibration](#probe-calibrate) (with [location](https://www.klipper3d.org/Probe_Calibrate.html#location-bias-check) and [temperature](https://www.klipper3d.org/Probe_Calibrate.html#temperature-bias) bias checks)
+6. [Basic delta calibration](#basic-delta-calibration)
+7. [Enhanced delta calibration](https://www.klipper3d.org/Delta_Calibrate.html#enhanced-delta-calibration)
+8. [Probe calibration](#probe-calibrate) again
+9. [Bed Mesh](#bed-mesh)
 
 ## Extruder Spring
 [My Q5 Calibration tips](https://gist.github.com/vincios/b17958ad331af8cf458c066ca46a3da9#tensione-molla-estrusore)
@@ -40,7 +68,7 @@ So according to [obtaining rotation_distance from steps_per_mm (or step_distance
 
 [Official documentation](https://www.klipper3d.org/Endstop_Phase.html#calibrating-endstop-phases)
 
-### Delta Calibration
+### Basic Delta Calibration
 [My Q5 calibration tips](https://gist.github.com/vincios/b17958ad331af8cf458c066ca46a3da9#delta-calibration)
 
 [Official documentation](https://www.klipper3d.org/Delta_Calibrate.html#basic-delta-calibration)

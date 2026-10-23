@@ -8,15 +8,15 @@ Legend:
 `🔹parameter_name`/`🔹[section]` indicate a parameter or a section of the `printer.cfg` file.
 
 ### Some notes about calibration order
-About **delta calibration**, klipper documentation says that:
+About **delta calibration**, klipper documentation says
 
-1. `the delta calibration is dependent on the precision of the tower endstop switches` ([source](https://www.klipper3d.org/Delta_Calibrate.html#delta-calibration))
-2. `If using an automatic probe then first calibrate the probe and then check for a probe location bias` ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
-3. `If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. [...] be sure to rerun probe calibration after any delta calibration.` ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
+> 1. The delta calibration is dependent on the precision of the tower endstop switches ([source](https://www.klipper3d.org/Delta_Calibrate.html#delta-calibration))
+> 2. If using an automatic probe then first calibrate the probe and then check for a probe location bias ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
+> 3. If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. [...] be sure to rerun probe calibration after any delta calibration ([source](https://www.klipper3d.org/Delta_Calibrate.html#automatic-vs-manual-probing))
 
-About the temperature, the documentation is ambigous, because in the [Bed Leveling](https://www.klipper3d.org/Bed_Level.html#the-paper-test) page says 
+About the **temperature**, the documentation is ambigous, because in the [Bed Leveling](https://www.klipper3d.org/Bed_Level.html#the-paper-test) page says 
 
-> `Always perform the paper test when both nozzle and bed are at room temperature!`
+> Always perform the paper test when both nozzle and bed are at room temperature!
  
 And in the [Probe Calibration](https://www.klipper3d.org/Probe_Calibrate.html#temperature-bias) page says
 
